@@ -12,7 +12,7 @@ const RecipesList = () => {
         default: 4,
         1100: 4,
         700: 3,
-        500: 2
+        500: 1
     };
 
     const { recipes } = useContext(RecipesContext);
@@ -20,6 +20,7 @@ const RecipesList = () => {
     return (
         <Container maxWidth="lg" style={{ marginTop: '2rem', textAlign: 'center' }}>
             <Masonry
+                style = {{ margin: '0 auto' }}
                 breakpointCols={breakpointColumnsObj}
                 className="my-masonry-grid"
                 columnClassName="my-masonry-grid_column">

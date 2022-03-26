@@ -23,14 +23,14 @@ const AboutText = styled.div`
 const About = () => {
 
   return (
-    <Container maxWidth="lg" style={{ marginTop: '2rem', textAlign: 'center' }}>
+    <Container maxWidth="lg" style={{ margin: '2rem auto' }}>
 
         <Grid container spacing={3}>
             <Grid item xs={12} sm={6}>
                 <AboutImage src={aboutImage} alt="aboutImage" />
             </Grid>
             <Grid item xs={12} sm={6}>
-                    <Typography variant="h4" gutterBottom style={{ color : '#b57f1e' }}>
+                    <Typography variant="h4" gutterBottom style={{ color : '#f8a055' }}>
                         About us
                     </Typography>
                     <AboutText>

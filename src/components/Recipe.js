@@ -10,21 +10,11 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import Modal from '@mui/material/Modal';
+
+import 'react-responsive-modal/styles.css';
+import { Modal } from 'react-responsive-modal';
 
 
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 400,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    p: 4,
-};
 
 const Recipe = ({recipe}) => {
 
@@ -108,6 +98,7 @@ const Recipe = ({recipe}) => {
                     >
                         {isFavorite(recipe) ? 'Remove from favorites' : 'Add to favorites'}
                     </Button>
+
                     <Modal
                         open={open}
                         onClose={
@@ -118,19 +109,45 @@ const Recipe = ({recipe}) => {
 
                             }
                         }
-                        aria-labelledby="modal-modal-title"
-                        aria-describedby="modal-modal-description"
                     >
-                        <Box sx={style}>
-                            {recipeInfo.strDrink}
-                            <img src={recipeInfo.strDrinkThumb} alt={recipeInfo.strDrink} style={{width: '100%'}}/>
+                        
+                            <img src={recipeInfo.strDrinkThumb} alt={recipeInfo.strDrink} style={{ width: '100%' }} />
                             <h3>Ingredients</h3>
                             <ul>
                                 { showIngredients(recipeInfo) }
                             </ul>
                             <h3>Instructions</h3>
                             {recipeInfo.strInstructions}
-                        </Box>
+                            <div className= "modal-buttons" style={{display: 'flex', justifyContent: 'space-between', marginTop: '20px'}}>
+                                <Button
+                                    style={{color: '#FA6E59', border: '2px solid #FA6E59'}}
+                                    onClick={
+                                        () => {
+                                            setRecipeId(null);
+                                            setRecipeInfo({});
+                                            handleClose();
+                                        }
+                                    }
+                                >
+                                    Close
+                                </Button>
+                                <Button
+                                    style={{color: '#FA6E59', border: '2px solid #FA6E59'}}
+                                    onClick={
+                                        () => {
+                                            if(isFavorite(recipe)){
+                                                removeFromFavorites(recipe);
+                                            }else{
+                                                addToFavorites(recipe);
+                                            }
+                                        }
+                                    }
+                                >
+                                    {isFavorite(recipe) ? 'Remove from favorites' : 'Add to favorites'}
+                                </Button>
+                            </div>
+                    
+                        
                     </Modal>
                 </CardActions>
             </Card>

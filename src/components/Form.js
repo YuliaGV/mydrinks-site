@@ -23,8 +23,8 @@ const Form = () => {
 
   return (
     <div>
-      <Container maxWidth="sm" style={{ marginTop: '2rem', textAlign: 'center' }}>
-          <Typography variant="h4" gutterBottom style={{ color : '#b57f1e' }}>
+      <Container maxWidth="sm" style={{ margin: '2rem auto'}}>
+          <Typography variant="h4" gutterBottom style={{ color : '#f8a055' }}>
               Find a drink by category or ingredient
           </Typography>
           <form onSubmit={(e) => {
@@ -72,7 +72,7 @@ const Form = () => {
                 <Button 
                   fullWidth
                   variant="contained" 
-                  style={{ marginTop: '1rem', backgroundColor: '#ff6f00' }}
+                  style={{ marginTop: '1rem', backgroundColor: '#FA6E59' }}
                   type="submit"
                 >
                   Search

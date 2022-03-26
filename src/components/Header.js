@@ -7,7 +7,7 @@ import logo from  '../img/logo.png';
 const HeaderContainer = styled.header`
   padding: 1rem;
   text-align: center;
-  background-color: #CFBA9E;
+  background-color: #FA6E59;
   h1 {
     font-size: 2rem;
     margin-bottom: 1rem;
@@ -26,12 +26,12 @@ const NavContainer = styled.nav`
   padding: 1rem;
 
   a {
-    color: #7A633A;
+    color: #fff;
     font-weight: bold;
     text-decoration: none;
     font-size: 1.2rem;
     &:hover {
-      color: #DC9D21;
+      color: #FFDB5C;
     }
   }
 `;

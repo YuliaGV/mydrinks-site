@@ -12,19 +12,20 @@ const Favorites = () => {
     default: 4,
     1100: 4,
     700: 3,
-    500: 2
+    500: 1
   };
 
   const { favorites } = useContext(FavoritesContext);
 
 
   return (
-    <Container maxWidth="lg" style={{ marginTop: '2rem', textAlign: 'center' }}>
-        <Typography variant="h4" gutterBottom style={{ color : '#b57f1e' }}>
+    <Container maxWidth="lg" style={{ margin: '2rem auto' }}>
+        <Typography variant="h4" gutterBottom style={{ color : '#f8a055' }}>
           My Favorites
         </Typography>
 
         <Masonry
+          style = {{ margin: '0 auto' }}
           breakpointCols={breakpointColumnsObj}
           className="my-masonry-grid"
           columnClassName="my-masonry-grid_column">

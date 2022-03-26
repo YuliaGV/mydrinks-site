@@ -26,7 +26,7 @@ const RecipesProvider = (props) => {
             }
             getRecipes();
         }
-    }, [search])
+    }, [search, category, ingredient, query]);
         
         
     return (
