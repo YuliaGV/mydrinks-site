@@ -24,9 +24,7 @@ const RecipesList = () => {
                 breakpointCols={breakpointColumnsObj}
                 className="my-masonry-grid"
                 columnClassName="my-masonry-grid_column">
-                {recipes.map(recipe => (
-                    <Recipe key={recipe.idDrink} recipe={recipe} />
-                ))}
+                {recipes ? recipes.map(recipe => <Recipe key={recipe.idDrink} recipe={recipe} />) : null}
             </Masonry>
         </Container>
     )

@@ -24,7 +24,6 @@ import styled from 'styled-components';
 const AppContainer = styled.div`
   background-color: #EAE2D6;
   display: flex;
-  margin-bottom:5rem;
   flex-direction: column;
   min-height: 100vh;
   text-align: center;
@@ -49,8 +48,8 @@ function App() {
                   <Route path="/favorites" element={<Favorites />} />
                 </Routes>
               </BrowserRouter>
-              <Footer />
             </AppContainer>
+            <Footer />
           </ModalProvider>
         </FavoritesProvider>
       </RecipesProvider>

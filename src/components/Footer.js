@@ -5,18 +5,16 @@ import styled from 'styled-components';
 import HomerBeer from '../img/homer-beer.png';
 
 const FooterContainer = styled.header`
-  position: fixed;
-  bottom: 0;
   width: 100%;
   padding: 0.5rem;
   text-align: center;
-  background-color: #FA6E59;
+  background-color: #F8A055;
   color: #fff;
   font-weight: bold;
   text-decoration: none;
   font-size: 1.2rem;
   &:hover {
-    color: #FFDB5C;
+    color: #000;
   }
 `;
 
