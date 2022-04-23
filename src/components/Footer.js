@@ -6,7 +6,6 @@ import HomerBeer from '../img/homer-beer.png';
 
 const FooterContainer = styled.header`
   width: 100%;
-  padding: 0.5rem;
   text-align: center;
   background-color: #F8A055;
   color: #fff;
