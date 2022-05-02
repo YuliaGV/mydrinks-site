@@ -16,6 +16,7 @@ import Footer from './components/Footer';
 import Home from './components/Home';
 import About from './components/About';
 import Favorites from './components/Favorites';
+import Categories from './components/Categories';
 
 
 import styled from 'styled-components';
@@ -45,6 +46,7 @@ function App() {
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/about" element={<About />} />
+                  <Route path="/categories" element={<Categories />} />
                   <Route path="/favorites" element={<Favorites />} />
                 </Routes>
               </BrowserRouter>

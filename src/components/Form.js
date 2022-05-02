@@ -1,18 +1,15 @@
 import React, { useContext, useState } from 'react';
-import { Button, Container, FormControl, Grid, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material';
-import { CategoriesContext } from '../context/categoriesContext';
+import { Button, Container, FormControl, Grid, TextField, Typography } from '@mui/material';
 import { RecipesContext } from '../context/recipesContext';
 
 
 const Form = () => {
 
   const [ searchData, setSearchData ] = useState({
-    ingredient: '',
-    category: ''
+    name: ''
   });
 
-  const { categories } = useContext(CategoriesContext);
-  const { setSearch, saveQuery } = useContext(RecipesContext);
+  const { setSearchName, saveQuery } = useContext(RecipesContext);
 
   const handleChange = (e) => {
     setSearchData({
@@ -29,44 +26,27 @@ const Form = () => {
           </Typography>
           <form onSubmit={(e) => {
             e.preventDefault();
-            setSearch(searchData);
+            setSearchName(searchData);
             saveQuery(true);
           }}>
-            <Grid container spacing={0.5}>
-              <Grid item xs={12} sm={6} md={6} lg={6}>
-                <FormControl fullWidth style={{ marginTop: '1rem', marginBottom: '1rem' }}>
-                    <InputLabel id="category">Category (required)</InputLabel>
-                    <Select
-                      labelId="category"
-                      id="category"
-                      label="Category (required)"
-                      name='category'
-                      value={searchData.category}
-                      onChange={handleChange}
-                      required
-                              
-                    >
-                      {categories.map(category => (
-                        <MenuItem key={category.strCategory} value={category.strCategory}>{category.strCategory}</MenuItem>
-                      ))}
-
-                    </Select>
-                </FormControl>
-              </Grid>
+            <Grid container spacing={0.2}>
             
-              <Grid item xs={12} sm={6} md={6} lg={6}>
+              <Grid item xs={12} sm={12} md={12} lg={12}>
                 <FormControl fullWidth style={{ marginTop: '1rem' }}>
                   <TextField
                     id="outlined-basic"
-                    label="Ingredient (optional)"
-                    name= "ingredient"
-                    value={searchData.ingredient}
+                    label="What do you want to drink?"
+                    placeholder='E.g. "Tequila" or "Coffee"'
+                    style = {{ borderColor : '#f8a055'  }}  
+                    name= "name"
+                    value={searchData.name}
                     onChange={handleChange}
                   />
                 </FormControl>
               </Grid>
+
               
-              <Grid item xs={12} sm={12} md={12} lg={12}>
+              <Grid item xs={12} sm={12} md={12} lg={12} >
                 <Button 
                   fullWidth
                   variant="contained" 

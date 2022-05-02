@@ -18,7 +18,7 @@ const RecipesList = () => {
     const { recipes } = useContext(RecipesContext);
 
     return (
-        <Container maxWidth="lg" style={{ marginTop: '2rem', textAlign: 'center' }}>
+        <Container maxWidth="lg" style={{ margin : '1rem auto', textAlign : 'center' }}>
             <Masonry
                 style = {{ margin: '0 auto' }}
                 breakpointCols={breakpointColumnsObj}

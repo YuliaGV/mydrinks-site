@@ -5,7 +5,7 @@ import logo from  '../img/logo.png';
 
 
 const HeaderContainer = styled.header`
-  padding: 1rem;
+  padding: 2rem;
   text-align: center;
   background-color: #FA6E59;
   h1 {
@@ -19,20 +19,35 @@ const HeaderContainer = styled.header`
 
 const NavContainer = styled.nav`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   display: flex;
   justify-content: space-between;
   padding: 1rem;
 
+  @media (min-width: 768px) {
+    flex-direction: row;
+    padding: 0;
+
+  }
+
   a {
     color: #fff;
     font-weight: bold;
     text-decoration: none;
-    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-size: 1rem;
+    padding: 0.5rem;
     &:hover {
       color: #FFDB5C;
     }
+
+    @media (min-width: 768px) {
+      padding: 0;
+    }
+
+
   }
 `;
 
@@ -46,7 +61,9 @@ const Header = () => {
         <NavContainer>
           <a href="/">Home</a>
           <a href="/about">About</a>
+          <a href="/categories">Categories</a>
           <a href="/favorites">Favorites</a>
+
         </NavContainer>
       </Container>
     </HeaderContainer>
