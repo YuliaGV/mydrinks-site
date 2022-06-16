@@ -33,7 +33,7 @@ const NavContainer = styled.nav`
   }
 
   a {
-    color: #fff;
+    color: #2f1505;
     font-weight: bold;
     text-decoration: none;
     text-transform: uppercase;

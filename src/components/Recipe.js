@@ -11,8 +11,12 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-import 'react-responsive-modal/styles.css';
-import { Modal } from 'react-responsive-modal';
+
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 
 
@@ -22,8 +26,14 @@ const Recipe = ({recipe}) => {
     const { favorites, setFavorites } = useContext(FavoritesContext);
 
     const [open, setOpen] = useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+
+    const handleClose = () => {
+      setOpen(false);
+    };
 
     const showIngredients  = (recipeInfo)  => {
         let ingredients = [];
@@ -77,7 +87,7 @@ const Recipe = ({recipe}) => {
                     onClick={
                         () => {
                             setRecipeId(recipe.idDrink);
-                            handleOpen();
+                            handleClickOpen();
                         }
                     }
                     >
@@ -99,7 +109,7 @@ const Recipe = ({recipe}) => {
                         {isFavorite(recipe) ? 'Remove from favorites' : 'Add to favorites'}
                     </Button>
 
-                    <Modal
+                    <Dialog
                         open={open}
                         onClose={
                             () => {
@@ -109,8 +119,14 @@ const Recipe = ({recipe}) => {
 
                             }
                         }
+                        aria-labelledby="alert-dialog-title"
+                        aria-describedby="alert-dialog-description"
                     >
-                        
+                        <DialogTitle id="alert-dialog-title">
+                            {recipe.strDrink}
+                        </DialogTitle>
+                        <DialogContent>
+                        <DialogContentText id="alert-dialog-description">
                             <img src={recipeInfo.strDrinkThumb} alt={recipeInfo.strDrink} style={{ width: '100%' }} />
                             <h3>Ingredients</h3>
                             <ul>
@@ -118,19 +134,11 @@ const Recipe = ({recipe}) => {
                             </ul>
                             <h3>Instructions</h3>
                             {recipeInfo.strInstructions}
-                            <div className= "modal-buttons" style={{display: 'flex', justifyContent: 'space-between', marginTop: '20px'}}>
-                                <Button
-                                    style={{color: '#FA6E59', border: '2px solid #FA6E59'}}
-                                    onClick={
-                                        () => {
-                                            setRecipeId(null);
-                                            setRecipeInfo({});
-                                            handleClose();
-                                        }
-                                    }
-                                >
-                                    Close
-                                </Button>
+        
+                        </DialogContentText>
+                        </DialogContent>
+                        <DialogActions>
+                        <div className= "modal-buttons" style={{display: 'flex', justifyContent: 'space-between', marginTop: '20px'}}>
                                 <Button
                                     style={{color: '#FA6E59', border: '2px solid #FA6E59'}}
                                     onClick={
@@ -145,10 +153,23 @@ const Recipe = ({recipe}) => {
                                 >
                                     {isFavorite(recipe) ? 'Remove from favorites' : 'Add to favorites'}
                                 </Button>
+                                <Button
+                                    style={{color: '#FA6E59', border: '2px solid #FA6E59', marginLeft: '20px'}} 
+                                    onClick={
+                                        () => {
+                                            setRecipeId(null);
+                                            setRecipeInfo({});
+                                            handleClose();
+                                        }
+                                    }
+                                >
+                                    Close
+                                </Button>
+                                
                             </div>
-                    
-                        
-                    </Modal>
+                        </DialogActions>
+                    </Dialog>
+        
                 </CardActions>
             </Card>
     )

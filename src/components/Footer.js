@@ -8,16 +8,11 @@ const FooterContainer = styled.header`
   width: 100%;
   text-align: center;
   background-color: #F8A055;
-  color: #fff;
+  color: #2f1505;
   font-weight: bold;
   text-decoration: none;
   font-size: 1.2rem;
-  &:hover {
-    color: #000;
-  }
 `;
-
-
 
 const Footer = () => {
   return (
